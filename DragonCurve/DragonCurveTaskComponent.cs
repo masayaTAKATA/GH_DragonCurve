@@ -14,7 +14,7 @@ namespace DragonCurve
     public class DragonCurveTaskComponent : GH_TaskCapableComponent<DragonCurveTaskComponent.SolveResults>
     {
         //Constructor
-        public DragonCurveTaskComponent() : base("Dragon curve", "DC_t", "Mult-threading compute Dragon curve", "User", "Test")
+        public DragonCurveTaskComponent() : base("DragonCurve_Task", "DC_t", "Mult-threading compute Dragon curve", "User", "Test")
         {
         }
         #region Input, Output
@@ -33,7 +33,7 @@ namespace DragonCurve
 
         public class SolveResults
         {
-            public Point3d Value { get; set; }
+            public List<Point3d> Value { get; set; }
         }
 
         /// <summary>
@@ -43,14 +43,26 @@ namespace DragonCurve
         /// </summary>
         private static SolveResults ComputeDragonPts(double length, int num)
         {
+            //Declare start and rule string(example)
+            string startString = "FX";
+            string ruleX = "X+YF+";
+            string ruleY = "-FX-Y";
+
             var result = new SolveResults();
 
-            
+            var dragonString = startString;
+            GrowString(ref num, ref dragonString, ruleX, ruleY);
+
+            var dragonPts = new List<Point3d>();
+            ParceDragonString(dragonString, length, ref dragonPts);
+
+            result.Value = dragonPts;
+
             return result;
         }
 
         //Generate GrowString from rules
-        private void GrowString(ref int num, ref string finalString, string ruleX, string ruleY)
+        private static void GrowString(ref int num, ref string finalString, string ruleX, string ruleY)
         {
             //Decrement the count with each new execution of the grow funcution.
             num = num - 1;
@@ -86,7 +98,7 @@ namespace DragonCurve
             GrowString(ref num, ref finalString, ruleX, ruleY);
         }
 
-        private void ParceDragonString(string dragonString, double length, ref List<Point3d> dragonPoints)
+        private static void ParceDragonString(string dragonString, double length, ref List<Point3d> dragonPoints)
         {
             //parce instruction string to generate points
             //let base point be world origin
@@ -130,6 +142,18 @@ namespace DragonCurve
             //Retrieve input data
             if(!DA.GetData(0, ref num)) { return; }
             if(!DA.GetData(1, ref length)) { return; }
+
+            //We should now valdate the data and warn the user if invalid data is supplied.
+            if(num <= 1)
+            {
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Number of depth must be bigger than One.");
+                return;
+            }
+            if(length < 0)
+            {
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Length must be bigger than Zero ");
+                return;
+            }
 
             if (InPreSolve)
             {
