@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="DragonCurveComponent.cs" />
     <Compile Include="DragonCurveInfo.cs" />
+    <Compile Include="DragonCurveTaskComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
