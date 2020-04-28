@@ -42,7 +42,7 @@ namespace DragonCurve
             get
             {
                 //Return a string identifying you or your company.
-                return "";
+                return "masayaTKT";
             }
         }
         public override string AuthorContact
