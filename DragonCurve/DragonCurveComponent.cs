@@ -160,8 +160,11 @@ namespace DragonCurve
             }
         }
 
-
-        protected override System.Drawing.Bitmap Icon => null;
+        /// <summary>
+        /// component icon image data
+        /// https://www.flaticon.com/free-icon/japanese-dragon_12777
+        /// </summary>
+        protected override System.Drawing.Bitmap Icon => DragonCurve.Properties.Resources.japanese_dragon;
 
         public override GH_Exposure Exposure => GH_Exposure.primary | GH_Exposure.obscure;
 
