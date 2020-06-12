@@ -12,7 +12,7 @@ namespace DragonCurve
 {
     public class DragonCurveComponent : GH_Component
     {
-        public DragonCurveComponent() : base("DragonCurve", "DC", "Standard compute DragonCurve","User", "Test")
+        public DragonCurveComponent() : base("DragonCurve", "DC", "Standard compute DragonCurve","Meenaxy", "Default")
         {
         }
 
@@ -90,7 +90,7 @@ namespace DragonCurve
         private void GrowString(ref int num, ref string finalString, string ruleX, string ruleY)
         {
             //Decrement the count with each new execution of the grow funcution.
-            num = num - 1;
+            num -= 1;
             char rule;
 
             //Create new string

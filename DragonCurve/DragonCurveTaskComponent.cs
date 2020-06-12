@@ -14,7 +14,7 @@ namespace DragonCurve
     public class DragonCurveTaskComponent : GH_TaskCapableComponent<DragonCurveTaskComponent.SolveResults>
     {
         //Constructor
-        public DragonCurveTaskComponent() : base("DragonCurve_Task", "DC_t", "Mult-threading compute Dragon curve", "User", "Test")
+        public DragonCurveTaskComponent() : base("DragonCurve_Task", "DC_t", "Mult-threading compute Dragon curve", "Meenaxy", "Test")
         {
         }
         #region Input, Output

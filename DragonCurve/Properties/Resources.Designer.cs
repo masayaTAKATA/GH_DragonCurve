@@ -63,9 +63,29 @@ namespace DragonCurve.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap c_sharp {
+            get {
+                object obj = ResourceManager.GetObject("c_sharp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap japanese_dragon {
             get {
                 object obj = ResourceManager.GetObject("japanese_dragon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap meenaxyLogo {
+            get {
+                object obj = ResourceManager.GetObject("meenaxyLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
